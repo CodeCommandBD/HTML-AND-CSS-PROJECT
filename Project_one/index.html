@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restraunt </title>
+    <script src="https://kit.fontawesome.com/b47ac96c9b.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        /* html{
+            font-size: 60%;
+
+        } */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /*################## utility classes ##############  */
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1em 2.5em;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            outline: none;
+            margin-top: 1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            color: white;
+            background: #117964;
+        }
+
+
+        /* ################### nav bar ############# */
+
+        /* for desktop mode  */
+
+
+
+        /* Hide hamburger icon */
+        .hamburger,
+        input[type='checkbox'] {
+            display: none;
+        }
+
+        /* Menu looks normal inline */
+        .menu {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            width: auto;
+            background: transparent;
+            box-shadow: none;
+            padding-top: 0;
+            list-style: none;
+            gap: 15px;
+        }
+
+
+
+        .nav_bar {
+            box-shadow: 0 5px 10px 0 #aaa;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            opacity: 0.85;
+            z-index: 999;
+            background: white;
+        }
+
+        .navbar_container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+
+
+        .menu a {
+            color: #444;
+            font-weight: 500;
+            transition: 0.5s;
+        }
+
+        .nav_bar a:hover {
+            color: #117964;
+        }
+
+        /* ############## hero-area ########## */
+
+        .hero-area {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.507)), url(./img/food.jpg);
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+        }
+
+        .hero_container h1 {
+            text-transform: uppercase;
+        }
+
+        /* ############## About ########## */
+
+        .about {
+            padding: 50px 0;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+        }
+
+        .about-text h4 {
+            font-size: 1.8rem;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+            padding: 30px;
+            margin: auto;
+            transform: translateX(-150%);
+            animation: about-img-anim 1s ease-in-out forwards;
+        }
+
+        .about-img {
+            flex: 1 1 400px;
+            padding: 30px;
+            transform: translateX(150%);
+            animation: about-img-anim 1s ease-in-out forwards;
+        }
+
+        @keyframes about-img-anim {
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .about-img img {
+            max-width: 100%;
+            height: 400px;
+            margin: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* ################ Food Type ############### */
+        #food {
+            padding: 5rem 0 10rem 0;
+        }
+
+        #food h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .food-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .food-container img {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            max-height: 300px;
+            margin: auto;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .img-container {
+            filter: drop-shadow(5px 5px 3px #3b810c);
+            margin: 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.871);
+            transform: scaleY(0);
+            transform-origin: 100% 100%;
+            transition: 0.5s ease-in-out;
+        }
+
+        .img-container:hover:before {
+            transform: scaleY(1);
+        }
+
+        .img-content {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .img-container:hover .img-content {
+            opacity: 1;
+            top: 60%;
+        }
+
+        .img-container h3 {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* ################ Food Menu ###############  */
+
+
+        .food-menu-head {
+            font-size: 3rem;
+            text-align: center;
+            font-weight: 400;
+            color: #555;
+        }
+
+        .food-menu-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 50px 0;
+
+        }
+
+        .food-menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1 1 600px;
+            margin-bottom: 20px;
+
+        }
+
+        .food-menu-img img {
+            width: 200px;
+            height: 200px;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .food-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #444;
+        }
+
+        .food-menu-description {
+            margin: auto 1.5rem;
+        }
+
+        .food-menu-description p {
+            font-size: 1.4rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .food-menu-description .price {
+            color: #117964;
+            font-weight: 700;
+        }
+
+        /* ################ Testimonials ############### */
+
+        #testimonial {
+            padding: 50px 0;
+            background: #f1f0f0;
+        }
+
+        .testi-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #555;
+        }
+
+        .testi-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+
+        }
+
+        .testi-rate i {
+            color: #ff9529;
+        }
+
+        .testi-descrip {
+            margin: 1rem 0;
+            color: #444;
+        }
+
+        .testi-box {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .customer-details .cutomer-img img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        /* ################ Contact ############### */
+        #contact {
+            padding: 50px 0;
+            background: #dddbdb;
+        }
+
+        .contact-container {
+            display: flex;
+        }
+
+        .contact-img {
+            width: 50%;
+        }
+
+        .contact-img img {
+            display: block;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .form-container {
+            padding: 1rem;
+            width: 50%;
+            margin: auto;
+        }
+
+        .form-container input,
+        textarea {
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #646464;
+            padding: 1rem 1rem;
+            box-shadow: none;
+            outline: none;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .form-container h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .form-container input[type="submit"] {
+            color: white;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* ################ Footer ############### */
+        #footer h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 2rem;
+            font-weight: 500;
+            color: white;
+            background: rgb(65, 65, 65);
+        }
+
+        /* ########## Media quries ############## */
+
+        @media (max-width: 768px) {
+
+            .nav_bar {
+                background: #fff;
+                opacity: 0.95;
+                width: 100%;
+                z-index: 10;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            /* Navbar container */
+            .navbar_container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 70px;
+                position: relative;
+                padding: 0 20px;
+            }
+
+            /* Hide default checkbox */
+            #menu-toggle {
+                display: none;
+            }
+
+            /* Hamburger (3 lines) */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 28px;
+                width: 35px;
+                cursor: pointer;
+            }
+
+            .hamburger .line {
+                height: 4px;
+                width: 100%;
+                background: #333;
+                border-radius: 10px;
+                transition: 0.5s ease;
+            }
+
+            /* Menu (sidebar) */
+            .menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 250px;
+                height: 100vh;
+                background: #fff;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                padding-top: 100px;
+                transition: 0.5s ease;
+                z-index: 5;
+            }
+
+            .menu li {
+                margin: 20px 0;
+                padding: 0 20px;
+            }
+
+            .menu li a {
+                text-decoration: none;
+                font-size: 1.5rem;
+                color: #333;
+                transition: 0.3s;
+            }
+
+            .menu li a:hover {
+                color: #ff6347;
+                /* hover color */
+            }
+
+            /* Logo */
+            .logo {
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            /* ========== CHECKBOX TOGGLE ANIMATION ========== */
+
+            /* Menu slide in */
+            #menu-toggle:checked~.menu {
+                left: 0;
+            }
+
+            /* Hamburger animation */
+            #menu-toggle:checked~.hamburger .line1 {
+                transform: rotate(45deg) translate(10px, 6px);
+            }
+
+            #menu-toggle:checked~.hamburger .line2 {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked~.hamburger .line3 {
+                transform: rotate(-45deg) translate(10px, -6px);
+            }
+
+            /* ########## food category ########### */
+            .food-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .food-container img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .food-type .img-container {
+                margin-bottom: 30px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            .food-menu-item {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .testi-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-container {
+                width: 90%;
+            }
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+            }
+            .contact-img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav_bar">
+        <div class="navbar_container container">
+            <input type="checkbox" id="menu-toggle">
+
+            <label for="menu-toggle" class="hamburger">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </label>
+
+            <ul class="menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#food">Category</a></li>
+                <li><a href="#food-menu">Menu</a></li>
+                <li><a href="#testimonial">Testimonial</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="logo">shanto</div>
+        </div>
+    </nav>
+
+
+    <!-- ################ Hero Area ############### -->
+
+    <section class="hero-area" id="hero">
+        <div class="hero_container">
+            <h1 class="main-title">Eat Right Food</h1>
+            <p class="">Eat Healthy food, it is good for your health</p>
+            <a href="#food-menu" class="btn btn-primary">Menu</a>
+        </div>
+    </section>
+
+    <!-- ################ About ############### -->
+
+    <section id="about" class="about">
+        <div class="about-wrapper container">
+            <div class="about-text">
+                <h2>About us</h2>
+                <h4>We've been making healty food for last 10years</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic tempora, sit possimus sint in non
+                    placeat. Vel blanditiis officiis culpa.</p>
+            </div>
+            <div class="about-img">
+                <img src="./img/veg.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- ################ Food Type ############### -->
+    <section id="food">
+        <h2>Type of Food</h2>
+        <div class="food-container container">
+            <div class="food-type fruit">
+                <div class="img-container">
+                    <img src="./img/food11.png" alt="">
+                    <div class="img-content">
+                        <h3>Fruit</h3>
+                        <a href="https://en.wikipedia.org/wiki/Fruit" target="_blank" class="btn btn-primary">Learn
+                            More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="food-type vege">
+                <div class="img-container">
+                    <img src="./img/food22.png" alt="">
+                    <div class="img-content">
+                        <h3>Vegetable</h3>
+                        <a href="https://en.wikipedia.org/wiki/Vegetable" target="_blank" class="btn btn-primary">Learn
+                            More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="food-type grain">
+                <div class="img-container">
+                    <img src="./img/food33.png" alt="">
+                    <div class="img-content">
+                        <h3>Meat</h3>
+                        <a href="https://en.wikipedia.org/wiki/Meat" target="_blank" class="btn btn-primary">Learn
+                            More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ################ Food Menu ############### -->
+    <section id="food-menu">
+        <h2 class="food-menu-head">Food Menu</h2>
+        <div class="food-menu-container container">
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu1.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu2.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu3.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu4.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 4</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu5.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+            <div class="food-menu-item">
+                <div class="food-menu-img">
+                    <img src="./img/food-menu6.jpg" alt="">
+                </div>
+                <div class="food-menu-description">
+                    <h2 class="food-title">Food Menu Item 6</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam tempore dolor magni</p>
+                    <p class="price">Price: $50</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ################ Testimonials ############### -->
+    <section id="testimonial">
+        <h2 class="testi-title">What our Customers say</h2>
+        <div class="testi-container container">
+            <div class="testi-box">
+                <div class="testi-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testi-descrip"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis sapiente
+                    aperiam laboriosam dolores, atque vel!</p>
+                <div class="customer-details">
+                    <div class="cutomer-img">
+                        <img src="./img/user.jpg" alt="">
+                    </div>
+                    <p class="customer-name">
+                        Shanto
+                    </p>
+                </div>
+            </div>
+            <div class="testi-box">
+                <div class="testi-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testi-descrip"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis sapiente
+                    aperiam laboriosam dolores, atque vel!</p>
+                <div class="customer-details">
+                    <div class="cutomer-img">
+                        <img src="./img/user.jpg" alt="">
+                    </div>
+                    <p class="customer-name">
+                        kumar
+                    </p>
+                </div>
+            </div>
+            <div class="testi-box">
+                <div class="testi-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testi-descrip"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis sapiente
+                    aperiam laboriosam dolores, atque vel!</p>
+                <div class="customer-details">
+                    <div class="cutomer-img">
+                        <img src="./img/user.jpg" alt="">
+                    </div>
+                    <p class="customer-name">
+                        Das
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ################ Contact ############### -->
+    <section id="contact">
+        <div class="contact-container container">
+            <div class="contact-img">
+                <img src="./img/contact.jpg" alt="">
+            </div>
+            <div class="form-container">
+                <h2>Contact Us</h2>
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea name="" id="" placeholder="Type here"></textarea>
+                    <input class="btn btn-primary" type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- ################ Footer ############### -->
+    <footer id="footer">
+        <h2>Restraunt Website &copy; all rights reserved 2025</h2>
+    </footer>
+</body>
+
+</html>
