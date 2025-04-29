@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBank</title>
+    <script src="https://kit.fontawesome.com/b47ac96c9b.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+        /* root variables */
+        :root {
+            --cyan: #61cf2a;
+            --dark-violet: hsl(257, 27%, 26%);
+            --gray: hsl(0, 0%, 75%);
+            --drak-gray: #EFF1f7;
+            --grayish-violet: hsl(260, 7%, 59%);
+            --very-dark-blue: hsl(255, 11%, 22%);
+            --very-dark-violet: hsl(260, 8%, 14%);
+            --white: #fff;
+
+            --dark-blue: hsl(233, 26%, 24%);
+            --lime-green: hsl(136, 65%, 51%);
+            --bright-cyan: hsl(192, 70%, 51%);
+            --grayish-blue: hsl(233, 8%, 62%);
+            --light-grayish-blue: hsl(220, 16%, 96%);
+            --very-light-gray: hsl(0, 0%, 98%);
+
+
+        }
+
+        /* Global Style */
+
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+        }
+
+        p {
+            font-size: 1.6rem;
+            color: var(--grayish-blue);
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 100rem;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /*  Utility class */
+
+        .u-mb-small {
+            margin-bottom: 1.6rem;
+        }
+
+        .u-mb-medium {
+            margin-bottom: 3rem;
+        }
+
+        .u-mb-large {
+            margin-bottom: 5rem;
+        }
+
+        /* ############# Header ############## */
+        /* ############# Header ############## */
+
+        header {
+            width: 100%;
+            height: 6.5rem;
+            padding: 2.5rem 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 999;
+        }
+
+        .nav_bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .nav_bar img {
+            width: 70px;
+            height: 70px;
+            margin-right: 25px;
+        }
+
+        .check,
+        .hamburger,
+        .close {
+            display: none;
+        }
+
+
+        .nav_bar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+        }
+
+
+        .nav_bar li a {
+            font-size: 1.6rem;
+            color: var(--grayish-blue);
+            padding-bottom: 1rem;
+            position: relative;
+
+        }
+
+        .nav_bar li a:hover {
+            color: var(--dark-blue);
+        }
+
+        .nav_bar li a::after {
+            content: '';
+            height: .2rem;
+            width: 100%;
+            position: absolute;
+            border-radius: 20%;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--lime-green), var(--bright-cyan));
+            transition: 0.5s;
+            transform: scaleX(0);
+
+        }
+
+        .nav_bar li a:hover:after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .btn {
+            font-size: 1.5rem;
+            color: var(--white);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--lime-green), var(--bright-cyan));
+            padding: 1.3rem 3rem;
+            border-radius: 5rem;
+            opacity: 1;
+            transform: scalex(1);
+            transition: 0.4s;
+
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scaleX(1.1);
+        }
+
+        /* ########## Welcome section ############### */
+        /* ########## Welcome section ############### */
+        /* ########## Welcome section ############### */
+
+        .welcome-section {
+            width: 100%;
+            background: var(--very-light-gray);
+        }
+
+        .welcome {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 20px;
+        }
+
+        .welcome-img {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+
+        }
+
+        .welcome-text {
+            text-align: center;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .welcome-text h1 {
+            font-size: 3.5rem;
+            font-weight: normal;
+            color: var(--dark-blue);
+            line-height: 4rem;
+        }
+
+        /* ########## About section ###############  */
+        /* ########## About section ###############  */
+        /* ########## About section ###############  */
+
+        .about-section {
+            background: var(--light-grayish-blue);
+        }
+
+        .about-text {
+            text-align: center;
+            width: 100%;
+
+        }
+
+        .heading-secondary {
+            font-size: 3rem;
+            font-weight: normal;
+            color: var(--dark-blue);
+            line-height: 4.5rem;
+        }
+
+        .about-item {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 4rem;
+            text-align: start;
+        }
+
+        .heading-secondary {
+            font-size: 2rem;
+            font-weight: normal;
+            color: var(--dark-blue);
+            line-height: 4.5rem;
+        }
+
+
+        /* ########## Article section ############### */
+        /* ########## Article section ############### */
+        /* ########## Article section ############### */
+
+
+        .article-section{
+            background: var(--very-light-gray);
+        }
+        .article{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 4rem;
+        }
+        .article-box{
+            background: var(--white);
+            /* background-origin: 1px solid red; */
+            border-radius: .5rem;
+            overflow: hidden;
+        }
+        .article-box img{
+            width: 100%;
+            height: 23rem;
+        }
+        .article-content{
+            padding: 2rem;
+        }
+        .article-author{
+            font-size: 1rem;
+
+        }
+        .article-header{
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: var(--dark-blue);
+        }
+        .article-excerpt{
+            font-size: 1.2rem;
+
+        }
+
+
+       
+
+        /* ########## Footer ############### */
+        /* ########## Footer ############### */
+        /* ########## Footer ############### */
+
+        footer{
+            padding: 5rem 0;
+            background: var(--dark-blue);
+        }
+        .footer{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 4rem;
+            column-gap: 2rem;
+        }
+        .footer-icon{
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-img img{
+            width: 80px;
+            height: 80px;
+        }
+
+        .social{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .social i{
+            font-size: 25px;
+            color: white;
+        }
+        .footer-links ul{
+            list-style: none;
+            
+        }
+
+        .footer-links ul li a{
+            text-decoration: none;
+            color: white;
+            padding-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+
+
+
+
+
+        /* ######### Media Queries ########### */
+        /* ######### Media Queries ########### */
+        /* ######### Media Queries ########### */
+
+        /*  laptop size */
+        @media screen and (max-width: 992px) {
+            .nav_bar .btn {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav_bar ul {
+                flex-direction: column;
+                position: absolute;
+                top: 100px;
+                right: 10%;
+                margin: 0 auto;
+                background: var(--white);
+                border: 1px solid lightblue;
+                border-radius: .3rem;
+                width: 80%;
+                padding: 1.5rem 0;
+                transform: translateY(-200%);
+                transition: 0.5s ease-in-out;
+                opacity: 1;
+            }
+
+            #click:checked~.nav-ul {
+                transform: translateY(0%);
+            }
+
+            #click:checked~.close {
+                display: block;
+            }
+
+            #click:checked~.hamburger {
+                display: none;
+            }
+
+            .welcome {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 20px;
+            }
+
+
+            /* for about  */
+            .about-text{
+                text-align: center;
+            }
+            .about-item {
+                text-align: center;
+            }
+
+        }
+
+        /*  Tablets size */
+        @media screen and (max-width: 768px) {
+            
+            
+        }
+
+        /*  phone and tablets size */
+        @media screen and (max-width: 600px) {}
+
+        /*  small phone size */
+        @media screen and (max-width: 420px) {}
+
+        /*  very small phone size */
+        @media screen and (max-width: 375px) {}
+    </style>
+</head>
+
+<body>
+
+    <!--############# header section ############# -->
+    <!--############# header section ############# -->
+    <!--############# header section ############# -->
+
+
+    <header>
+        <div class="container">
+            <nav class="nav_bar">
+                <img src="./img/bird logo.png" alt="" class="logo">
+
+                <input type="checkbox" id="click" class="check">
+                <label for="click" class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <label for="click" class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </label>
+
+                <ul class="nav-ul">
+                    <li class="nav-link"><a href="">Home</a></li>
+                    <li class="nav-link"><a href="">About</a></li>
+                    <li class="nav-link"><a href="">Contact</a></li>
+                    <li class="nav-link"><a href="">Blog</a></li>
+                    <li class="nav-link"><a href="">Careers</a></li>
+                </ul>
+
+                <a href="#" class="btn">Request Invite</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ########## Welcome section ###############  -->
+    <!-- ########## Welcome section ###############  -->
+    <!-- ########## Welcome section ###############  -->
+
+    <section class="welcome-section">
+        <div class="container welcome">
+            <div class="welcome-text">
+                <h1 class="u-mb-small">Next generation <span>digital banking</span></h1>
+                <p class="u-mb-large">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto ab unde mollitia quas esse
+                    voluptas?
+                </p>
+                <a href="#" class="btn"> Request Invite</a>
+            </div>
+            <div class="welcome-img">
+                <img src="./img/Phone.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- ########## About section ###############  -->
+    <!-- ########## About section ###############  -->
+    <!-- ########## About section ###############  -->
+
+    <section class="about-section">
+        <div class="container about">
+            <div class="about-text">
+                <h2 class="u-mb-large heading-secondary">
+                    Why choose Easybank?
+                </h2>
+                <p class="u-mb-large">
+                    we leverage open banking to turn your bank accout into your financial hub contorl.
+                </p>
+            </div>
+            <div class="about-item">
+                <div class="about-item-box">
+                    <img src="./img/log.png" alt="" class="u-mb-small">
+                    <h3 class="tertiary u-mb-small">
+                        Online Banking
+                    </h3>
+                    <p>
+                        our modern web and mobile applications allow you to keep track of your finances wherever you are
+                        in the world.
+                    </p>
+                </div>
+                <div class="about-item-box">
+                    <img src="./img/log.png" alt="" class="u-mb-small">
+                    <h3 class="tertiary u-mb-small">
+                        Online Banking
+                    </h3>
+                    <p>
+                        our modern web and mobile applications allow you to keep track of your finances wherever you are
+                        in the world.
+                    </p>
+                </div>
+                <div class="about-item-box">
+                    <img src="./img/log.png" alt="" class="u-mb-small">
+                    <h3 class="tertiary u-mb-small">
+                        Online Banking
+                    </h3>
+                    <p>
+                        our modern web and mobile applications allow you to keep track of your finances wherever you are
+                        in the world.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ########## Article section ###############  -->
+    <!-- ########## Article section ###############  -->
+    <!-- ########## Article section ###############  -->
+
+    <section class="article-section">
+        <div class="container">
+            <div class="about-text">
+                <h2 class="u-mb-large heading-section">
+                    Latest Article
+                </h2>
+                <p class="u-mb-large">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, eos. Quas consequuntur magni provident consectetur.
+                </p>
+            </div>
+            <div class="article">
+                <div class="article-box u-mb-small" >
+                    <img src="./img/card-1.jpg" alt="">
+                    <div class="article-content">
+                        <p class="article-author u-mb-small">
+                            By Claire Robinson
+                        </p>
+                        <h4 class="article-header u-mb-small">
+                            Recive money in any currency with on fees
+                        </h4>
+                        <p class="article-excerpt">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo iste ea quisquam, saepe voluptas dolores?
+                        </p>
+                    </div>
+                </div>
+                <div class="article-box u-mb-small" >
+                    <img src="./img/card-2.jpg" alt="">
+                    <div class="article-content">
+                        <p class="article-author u-mb-small">
+                            By Claire Robinson
+                        </p>
+                        <h4 class="article-header u-mb-small">
+                            Recive money in any currency with on fees
+                        </h4>
+                        <p class="article-excerpt">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo iste ea quisquam, saepe voluptas dolores?
+                        </p>
+                    </div>
+                </div>
+                <div class="article-box u-mb-small" >
+                    <img src="./img/card-3.jpg" alt="">
+                    <div class="article-content">
+                        <p class="article-author u-mb-small">
+                            By Claire Robinson
+                        </p>
+                        <h4 class="article-header u-mb-small">
+                            Recive money in any currency with on fees
+                        </h4>
+                        <p class="article-excerpt">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo iste ea quisquam, saepe voluptas dolores?
+                        </p>
+                    </div>
+                </div>
+                <div class="article-box u-mb-small" >
+                    <img src="./img/card-4.jpg" alt="">
+                    <div class="article-content">
+                        <p class="article-author u-mb-small">
+                            By Claire Robinson
+                        </p>
+                        <h4 class="article-header u-mb-small">
+                            Recive money in any currency with on fees
+                        </h4>
+                        <p class="article-excerpt">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo iste ea quisquam, saepe voluptas dolores?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ########## Footer ############### -->
+    <!-- ########## Footer ############### -->
+    <!-- ########## Footer ############### -->
+
+    <Footer>
+        <div class="container">
+            <div class="footer">
+                <div class="footer-icon">
+                    <div class="footer-img u-mb-small">
+                        <img src="./img/bird logo.png" alt="">
+                    </div>
+                    <div class="social">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="">Carrer</a></li>
+                        <li><a href="">Support</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-credit">
+                    <div class="u-mb-large">
+                        <a href="" class="btn">Request Invite</a>
+                    </div>
+                    <div class="footer-text">
+                        <p>@ Easybank. All Rights Reserved </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </Footer>
+</body>
+
+</html>
