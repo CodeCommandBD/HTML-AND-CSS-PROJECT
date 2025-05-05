@@ -9,3 +9,8 @@
     --font-primary: "Poppins", sans-serif;     
     --:                                   
 }
+@layer{
+    .sec-container{
+        @apply max-w-[1200px] mx-auto px-4 py-16 overflow-hidden;
+    }
+}

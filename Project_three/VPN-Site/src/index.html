@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vpn-Site</title>
+
 
     <!-- taiwind css  -->
 
     <link rel="stylesheet" href="input.css">
     <link rel="stylesheet" href="output.css">
 
+    <!--fontwesome link  -->
+    <script src="https://kit.fontawesome.com/b47ac96c9b.js" crossorigin="anonymous"></script>
+
+    <!-- animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        *{
+        * {
             /* margin: 0; */
             /* padding: 0; */
             box-sizing: border-box;
             text-decoration: none;
         }
-        .container{
+
+        .container {
             max-width: 1400px;
             margin: 0 auto;
         }
     </style>
 </head>
-<body>
-   <!--######### header  ######-->
-   <!--######### header  ######-->
-   <!--######### header  ######-->
+
+<body class="">
+    <!--######### header  ######-->
+    <!--######### header  ######-->
+    <!--######### header  ######-->
 
     <header>
         <nav>
             <div class="container flex items-center justify-between px-4 py-4 ">
                 <!-- logo -->
                 <a href="#home">
-                    <div class="logo text-primary font-bold text-2xl">V <span class="font-bold text-4xl text-secondary">P</span> N</div>
+                    <div class="logo text-primary font-bold text-2xl">V <span
+                            class="font-bold text-4xl text-secondary">P</span> N</div>
                 </a>
 
-                 <!-- nav item -->
+                <!-- nav item -->
                 <ul class="hidden md:flex items-center space-x-8">
                     <li><a href="#home" class="text-gray-600 hover:text-primary ">About</a>
                     </li>
@@ -48,7 +59,7 @@
                     </li>
                     <li><a href="#subscribe" class="text-gray-600 hover:text-primary ">Help</a>
                     </li>
-                    
+
                 </ul>
 
                 <!-- auth button -->
@@ -65,23 +76,231 @@
     <!--##### Hero Section ###### -->
     <!--##### Hero Section ###### -->
 
-    <section>
-        <div class="container px-4 py-28 flex flex-col md:flex-row items-center gap-12">
+    <section >
+        <div class="sec-container px-4 py-28 flex flex-col md:flex-row items-center gap-12">
             <!-- left content -->
-            <div class="md:w-1/2 mb-8 md:mb-0 space-y-8">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-heading-text leading-tight mb-2">Want anythig to  <br class="lg:block hidden"> be easy with VPN.</h1>
-                <p class="text-primary-text text-lg leading-relaxed max-w-xl">Provide a network for all your needs with ease and fun using VPN discover interesting featute from us</p>
+            <div class="md:w-1/2 mb-8 md:mb-0 space-y-8 " data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-heading-text leading-tight mb-2">Want anythig
+                    to <br class="lg:block hidden"> be easy with VPN.</h1>
+                <p class="text-primary-text text-lg leading-relaxed max-w-xl">Provide a network for all your needs with
+                    ease and fun using VPN discover interesting featute from us</p>
 
-                <button class="bg-primary text-white px-12 py-4 rounded-lg hover:bg-red-600 shadow-lg hover:shadow-xl cursor-pointer transition duration-300 text-lg font-medium">Get Started</button>
+                <button
+                    class="bg-primary text-white px-12 py-4 rounded-lg hover:bg-red-600 shadow-lg hover:shadow-xl cursor-pointer transition duration-300 text-lg font-medium">Get
+                    Started</button>
             </div>
 
             <!-- right content -->
-             <div class="md:w-1/2 ">
+            <div class="md:w-1/2 " data-aos="fade-left">
                 <img src="./images/banner.png" alt="" class="w-full object-fill object-center">
-             </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ###### static section -->
+    <!-- ###### static section -->
+    <!-- ###### static section -->
+
+    <section>
+        <div class="sec-container" data-aos="fade-up">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                    <!-- user stats -->
+                    <div class="flex items-center gap-6 px-12 py-6 md:py-0">
+                        <div class="p-5 shrink-0 bg-secondary/65 rounded-full">
+                            <img src="./images/user.png" alt="">
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-900">90+</h1>
+                            <p class="text-primary">Users</p>
+                        </div>
+                    </div>
+                    <!-- location  -->
+                    <div class="flex items-center gap-6 px-12 py-6 md:py-0">
+                        <div class="p-5 shrink-0 bg-secondary/65 rounded-full">
+                            <img src="./images/location.png" alt="">
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-900">30+</h1>
+                            <p class="text-primary">Location</p>
+                        </div>
+                    </div>
+                    <!-- server -->
+                    <div class="flex items-center gap-6 px-12 py-6 md:py-0">
+                        <div class="p-5 shrink-0 bg-secondary/65 rounded-full">
+                            <img src="./images/storage.png" alt="">
+                        </div>
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-900">50+</h1>
+                            <p class="text-primary">Server</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ###### features section  ###### -->
+    <!-- ###### features section  ###### -->
+    <!-- ###### features section  ###### -->
+
+    <section>
+        <div class="sec-container flex flex-col md:flex-row items-center gap-12 justify-between">
+            <div class=" md:w-1/2 left shrink-0">
+                <img src="./images//features.png" alt="">
+            </div>
+            <div class=" md:w-1/2 right space-y-8">
+                <h2 class="text-heading-text text-4xl font-bold leading-tight">We Provide <br> many features you can use
+                </h2>
+                <p class="text-primary-text leading-relaxed md:w-2/3">You can explore the features that we provide with
+                    fun and have their own funtions each feature.</p>
+
+                <!-- feature list -->
+
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <span><i class="fa-solid fa-circle-check" style="color: #316713;"></i></span>
+                        <span>Power full Online Protection</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span><i class="fa-solid fa-circle-check" style="color: #316713;"></i></span>
+                        <span>Internet without border.</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span><i class="fa-solid fa-circle-check" style="color: #316713;"></i></span>
+                        <span>Supercharged VPN </span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span><i class="fa-solid fa-circle-check" style="color: #316713;"></i></span>
+                        <span>No specific time limits</span>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </section>
 
 
+    <!-- ###### Price section ##### -->
+    <!-- ###### Price section ##### -->
+    <!-- ###### Price section ##### -->
+
+
+    <section>
+        <div class="bg-gray-50">
+            <div class="sec-container">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-heading-text mb-4">Choose Your Plan</h2>
+                    <p class="text-primary-text ">Let's choose the package that is best for you and explore it happily
+                        and cheerfully.</p>
+                </div>
+                <!-- Price card -->
+                <div class="grid md:grid-cols-3 grid-cols-1 max-w-6xl mx-auto gap-8">
+                    <div
+                        class="bg-white p-5 lg:p-8 rounded-2xl border-2 border-gray-200 flex flex-col items-center hover:border-red-500 transition duration-500 hover:scale-105" data-aos="fade-right">
+                        <img src="./images/box.png" alt="" class="w-32 mb-8">
+                        <h3 class="text-2xl font-bold mb-8">Free Plan</h3>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                        </ul>
+                        <!--  price button -->
+                        <div class="text-center">
+                            <div>Free</div>
+                            <button
+                                class="border-2 border-primary text-primary px-16 py-2 rounded-full hover:bg-red-500 transition duration-500 hover:text-white">Select</button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-5 lg:p-8 rounded-2xl border-2 border-gray-200 flex flex-col items-center hover:border-red-500 transition duration-500 hover:scale-105" data-aos="fade-in">
+                        <img src="./images/box.png" alt="" class="w-32 mb-8">
+                        <h3 class="text-2xl font-bold mb-8">Free Plan</h3>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                        </ul>
+                        <!--  price button -->
+                        <div class="text-center">
+                            <div>Free</div>
+                            <button
+                                class="border-2 border-primary text-primary px-16 py-2 rounded-full hover:bg-red-500 transition duration-500 hover:text-white">Select</button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-5 lg:p-8 rounded-2xl border-2 border-gray-200 flex flex-col items-center hover:border-red-500 transition duration-500 hover:scale-105" data-aos="fade-left">
+                        <img src="./images/box.png" alt="" class="w-32 mb-8">
+                        <h3 class="text-2xl font-bold mb-8">Free Plan</h3>
+
+                        <ul class="space-y-4 mb-8 flex-grow">
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span><i class="fa-solid fa-check" style="color: #266d18;"></i></span>
+                                <span>Unlimited Bandwidth</span>
+                            </li>
+                        </ul>
+                        <!--  price button -->
+                        <div class="text-center">
+                            <div>Free</div>
+                            <button
+                                class="border-2 border-primary text-primary px-16 py-2 rounded-full hover:bg-red-500 transition duration-500 hover:text-white">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        // {
+        //     duration:1000,
+        //     // once:true
+        // }
+      );
+    </script>
 </body>
+
 </html>
